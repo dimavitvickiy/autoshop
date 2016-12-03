@@ -18,10 +18,16 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from persons.views import (login_view, logout_view)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', login_view, name="login"),
+    url(r'^logout/', logout_view, name="logout"),
     url(r'^engines/', include('engines.urls', namespace='engines')),
     url(r'^models/', include('car_models.urls', namespace='car_models')),
+    url(r'^cars/', include('cars.urls', namespace='cars')),
+    url(r'^factories/', include('factories.urls', namespace='factories')),
     url(r'^', include('autoshops.urls', namespace='autoshops')),
 ]
 

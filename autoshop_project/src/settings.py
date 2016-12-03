@@ -43,12 +43,12 @@ INSTALLED_APPS = [
     # my apps
     'autoshops',
     'car_models',
-    # 'cars',
+    'cars',
     # 'contracts',
     'engines',
     # 'equipments',
-    # 'factories',
-    # 'persons',
+    'factories',
+    'persons',
 ]
 
 MIDDLEWARE = [

@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
+from django.db.models.query_utils import Q
+
 from .models import CarModel
 from .forms import CarModelForm
 
@@ -28,6 +30,13 @@ def car_model_create(request):
 
 def car_model_list(request):
     models = CarModel.objects.all()
+    query = request.GET.get('q')
+    if query:
+        models = models.filter(
+            Q(brand__icontains=query) |
+            Q(name__icontains=query) |
+            Q(engine__name__icontains=query)
+        )
     context = {
         'models': models,
         'title': 'Models'

@@ -4,7 +4,38 @@
 {% endblock %}
 
 {% block content %}
-        <h1>{{ autoshop }} </h1>
-        <p>{{ autoshop.address }}</p>
-        <p>{{ autoshop.email }}</p>
+    <hr>
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h1>{{ autoshop }}
+                {% if can_add_car %}
+                <small><a href="{% url 'cars:create' %}">Add car</a></small>
+                {% endif %}
+            </h1>
+            <p>E-mail : {{ autoshop.email }}</p>
+            <p>Address : {{ autoshop.address }}</p>
+
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            {% if autoshop.image %}
+                <img src="{{ autoshop.image.url }}" class="img-responsive"/>
+            {% endif %}
+        </div>
+      </div>
+    <hr>
+    <h1>Cars</h1>
+
+    <div class="row">
+          {% for car in cars %}
+        <div class="col-lg-3" style="text-align: center"><hr>
+               <img class="img-circle" src="{{ car.model.image.url }}" alt="Generic placeholder image" width="200" height="200">
+              <h2>{{ car }}</h2>
+                <p>Price: {{ car.price }}</p>
+            {% if can_add_car %}
+                <p>State: {{ car.state.car_state }}</p>
+            {% endif %}
+              <p><a class="btn btn-default" href="{{ car.get_absolute_url }}" role="button">More &raquo;</a></p>
+             </div>
+          {% endfor %}
+    </div>
 {% endblock %}

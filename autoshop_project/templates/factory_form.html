@@ -5,16 +5,12 @@
     {{ title }}
 {% endblock %}
 
-{% block head_extra %}
-    {{ form.media }}
-{% endblock head_extra %}
-
 {% block content %}
 
 <div class="col-sm-6">
-    <h1>Create engine</h1>
+    <h1>Add factory</h1>
     <hr>
-    <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+    <form method="post" action=""> {% csrf_token %}
         {{ form|crispy }}
         <input class="btn btn-success" type="submit" value="{{ button_name }}"/>
 
@@ -22,7 +18,7 @@
             {% if instance %}
             {{ instance.get_absolute_url }}
             {% else %}
-            {% url "engines:list" %}
+            {% url "factories:list" %}
             {% endif %}" class="btn btn-default">Cancel
         </a>
     </form>

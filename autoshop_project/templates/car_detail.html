@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <hr>
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h1>{{ car }}</h1>
+            <small>
+                {% if can_edit %}
+                    <a href="{{ car.get_update_url }}">Edit</a>
+                    | <a href="{{ car.get_delete_url }}">Delete</a>
+                {% endif %}
+            </small><br><br>
+            <p>Model : <a href="{{ car.model.get_absolute_url }}">{{ car.model }}</a></p>
+            <p>Factory : {{ car.factory }}</p>
+            <p>Color : {{ car.color.car_color }}</p>
+            <p>Release : {{ car.release_field }}</p>
+            <p>Price : ${{ car.price }}</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            {% if car.model.image %}
+                <img src="{{ car.model.image.url }}" class="img-responsive"/>
+            {% endif %}
+        </div>
+      </div>
+
+
+
+{% endblock %}

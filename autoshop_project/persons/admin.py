@@ -1,7 +1,14 @@
 from django.contrib import admin
 from .models import *
 
-# Register your models here.
-admin.site.register(Manager)
-admin.site.register(ManagerLevel)
+
+class ManagerAdmin(admin.ModelAdmin):
+    list_display = ['autoshop', 'account', 'passport']
+    list_display_links = ['passport']
+
+    class  Meta:
+        model = Manager
+
+
+admin.site.register(Manager, ManagerAdmin)
 admin.site.register(Buyer)

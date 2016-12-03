@@ -12,11 +12,7 @@ class Autoshop(models.Model):
     name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=100, unique=True)
     image = models.ImageField(upload_to=upload_location,
-                              null=True, blank=True,
-                              height_field="height_field",
-                              width_field="width_field")
-    height_field = models.IntegerField(default=0)
-    width_field = models.IntegerField(default=0)
+                              null=True, blank=True)
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     email = models.EmailField(unique=True)

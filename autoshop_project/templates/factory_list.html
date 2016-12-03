@@ -4,8 +4,8 @@
 {%  endblock %}
 {% block content %}
     <div class="col-lg-12">
-    <h1>Engines
-        <small><a href="{% url 'engines:create' %}">Add new</a></small>
+    <h1>Factories
+        <small><a href="{% url 'factories:create' %}">Add new</a></small>
     </h1>
     <form method="get" action="">
         <div class="row">
@@ -22,12 +22,16 @@
     <table style="width: 100%">
         <tr>
             <th>Name</th>
-            <th>Power</th>
+            <th>Country</th>
+            <th>City</th>
+            <th></th>
         </tr>
-        {% for engine in engines %}
+        {% for factory in factories %}
         <tr>
-            <td><a href="{{ engine.get_absolute_url }}" >{{ engine }} </a></td>
-            <td>{{ engine.power }}</td>
+            <td>{{ factory.name }}</td>
+            <td>{{ factory.country.name }}</td>
+            <td>{{ factory.city }}</td>
+            <td><a href="{{ factory.get_absolute_url }}" >More</a></td>
         </tr>
         {% endfor %}
     </table>

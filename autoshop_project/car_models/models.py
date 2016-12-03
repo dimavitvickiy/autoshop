@@ -60,10 +60,10 @@ def create_slug(instance, new_slug=None):
     return slug
 
 
-def pre_saved_engine_receive(sender, instance,*args, **kwargs):
+def pre_saved_model_receive(sender, instance,*args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
 
 
-pre_save.connect(pre_saved_engine_receive, sender=CarModel)
+pre_save.connect(pre_saved_model_receive, sender=CarModel)
 
