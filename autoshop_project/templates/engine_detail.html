@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+      <hr>
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h1>{{ engine.name }} </h1>
+            <small>
+                {% if request.user.is_authenticated %}
+                    <a href="{{ engine.get_update_url }}">Edit</a>
+                    | <a href="{{ engine.get_delete_url }}">Delete</a>
+                {% endif %}
+            </small><br><br>
+            <p>Volume : {{ engine.volume }}</p>
+            <p>Power : {{ engine.power }}</p>
+            <p>Number of cylinders : {{ engine.number_of_cylinders }}</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            {% if engine.image %}
+                <img src="{{ engine.image.url }}" class="img-responsive"/>
+            {% endif %}
+        </div>
+      </div>
+
+{% endblock %}
