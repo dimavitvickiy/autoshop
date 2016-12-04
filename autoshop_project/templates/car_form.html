@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block title %}
+{{title}}
+{% endblock title %}
+
 {% block content %}
 
-<div class="col-sm-6">
+<div class="col-sm-6 col-sm-offset-3">
     <h1>Create model</h1>
     <hr>
-    <form method="post" action=""> {% csrf_token %}
+    <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
         {{ form|crispy }}
         <input class="btn btn-success" type="submit" value="{{ button_name }}"/>
 

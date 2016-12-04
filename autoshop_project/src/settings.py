@@ -44,12 +44,14 @@ INSTALLED_APPS = [
     'autoshops',
     'car_models',
     'cars',
-    # 'contracts',
+    'contracts',
     'engines',
-    # 'equipments',
+    'equipments',
     'factories',
     'persons',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

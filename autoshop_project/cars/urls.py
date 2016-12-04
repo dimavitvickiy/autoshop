@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^create$', car_views.car_create, name='create'),
     url(r'^(?P<id>\d+)/$', car_views.car_detail, name='detail'),
     url(r'^(?P<id>\d+)/delete$', car_views.car_delete, name='delete'),
+    url(r'^(?P<id>\d+)/sell', car_views.car_sell, name='sale'),
     url(r'^(?P<id>\d+)/update', car_views.car_update, name='update'),
 ]

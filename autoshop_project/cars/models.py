@@ -44,3 +44,6 @@ class Car(models.Model):
 
     def get_update_url(self):
         return reverse("cars:update", kwargs={"id": self.id})
+
+    def get_sale_url(self):
+        return reverse("cars:sale", kwargs={"id": self.id})

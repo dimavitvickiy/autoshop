@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-sm-6 col-sm-offset-3">
+    <h1>{{ title }}</h1>
+    <hr>
+    <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-success" type="submit" value="{{ button_name }}"/>
+
+        <a href="
+            {% if instance %}
+            {{ instance.get_absolute_url }}
+            {% else %}
+            {{ instance.car.autoshop.get_absolute_url }}
+            {% endif %}" class="btn btn-default">Cancel
+        </a>
+    </form>
+</div>
+
+{% endblock content %}

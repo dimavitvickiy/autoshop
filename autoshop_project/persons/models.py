@@ -17,9 +17,3 @@ class Manager(models.Model):
 
     def __str__(self):
         return self.account.first_name
-
-
-class Buyer(models.Model):
-    birthdate = models.DateField()
-    passport = models.CharField(max_length=20)
-    phone = models.CharField(max_length=20)

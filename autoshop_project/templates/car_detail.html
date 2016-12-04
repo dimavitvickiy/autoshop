@@ -8,12 +8,19 @@
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
             <h1>{{ car }}</h1>
-            <small>
+
                 {% if can_edit %}
+                    <small>
+                    {% if car.state.car_state == 'on ship' %}
                     <a href="{{ car.get_update_url }}">Edit</a>
                     | <a href="{{ car.get_delete_url }}">Delete</a>
+                    {% endif %}
+                    {% if car.state.car_state == 'on sale' %}
+                        <a href="{{ car.get_sale_url }}">Sale</a>
+                    {% endif %}
+                    </small><br><br>
                 {% endif %}
-            </small><br><br>
+            <p>State : {{ car.state }}</p>
             <p>Model : <a href="{{ car.model.get_absolute_url }}">{{ car.model }}</a></p>
             <p>Factory : {{ car.factory }}</p>
             <p>Color : {{ car.color.car_color }}</p>

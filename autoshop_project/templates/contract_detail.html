@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <hr>
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h1><a href="{{ contract.car.get_absolute_url }}">{{ contract.car }}</a>
+                - $ {{ contract.price }}
+            </h1>
+            <p>Buyer : {{ contract.buyer_name }} {{ contract.buyer_last_name }}</p>
+            <p>Buyer birthdate : {{ contract.buyer_birthdate }}</p>
+            <p>Buyer passport : {{ contract.buyer_passport }}</p>
+            <p>Buyer phone : {{ contract.buyer_phone }}</p>
+            <p>Manager: {{ contract.manager }}</p>
+            <p>Addition equipment : </p>
+            {% for eqp in addition_equipment %}
+                <p>{{ eqp.name }} - ${{ eqp.price }}</p>
+            {% endfor %}
+            <p>Date : {{ contract.deal_date }}</p>
+            <p>Type : {{ contract.get_deal_type_display }}</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            <img src="http://files.web-site.build/enom23365/image/medical_billing_contract.jpg" class="img-responsive"/>
+        </div>
+      </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block head_extra %}
+    {{ form.media }}
+{% endblock head_extra %}
+
+{% block content %}
+
+<div class="col-sm-6 col-sm-offset-3">
+    <h1>Create equipment</h1>
+    <hr>
+    <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-success" type="submit" value="{{ button_name }}"/>
+
+        <a href="
+            {% if instance %}
+            {{ instance.get_absolute_url }}
+            {% else %}
+            {% url "equipments:list" %}
+            {% endif %}" class="btn btn-default">Cancel
+        </a>
+    </form>
+</div>
+
+{% endblock content %}

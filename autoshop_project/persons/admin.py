@@ -11,4 +11,3 @@ class ManagerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Manager, ManagerAdmin)
-admin.site.register(Buyer)

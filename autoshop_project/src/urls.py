@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 from persons.views import (login_view, logout_view)
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', login_view, name="login"),
@@ -27,6 +28,8 @@ urlpatterns = [
     url(r'^engines/', include('engines.urls', namespace='engines')),
     url(r'^models/', include('car_models.urls', namespace='car_models')),
     url(r'^cars/', include('cars.urls', namespace='cars')),
+    url(r'^equipments/', include('equipments.urls', namespace='equipments')),
+    url(r'^contracts/', include('contracts.urls', namespace='contracts')),
     url(r'^factories/', include('factories.urls', namespace='factories')),
     url(r'^', include('autoshops.urls', namespace='autoshops')),
 ]
